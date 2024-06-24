@@ -5,7 +5,8 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
-#include "../graphics/window.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #define MAX_KEYS            1024
 #define MAX_MOUSE_BUTTONS   32
@@ -13,24 +14,28 @@
 namespace sparky {
     class InputManager {
     public:
-        void Init(Window &window);
-
-        void Quit();
-
-        static bool isKeyPressed(unsigned int keycode);
-
-        static bool isMouseButtonPressed(unsigned int button);
-
-    private:
-        static bool m_Keys[MAX_KEYS];
-        static bool m_MouseButtonKeys[MAX_MOUSE_BUTTONS];
-        static bool m_MouseX, m_MouseY;
-
-        bool m_IsInit;
-
         InputManager();
 
         ~InputManager();
+
+        void Init( GLFWwindow *window);
+
+        void Quit();
+
+        [[nodiscard]] bool isKeyPressed(unsigned int keycode) const;
+
+        [[nodiscard]] bool isMouseButtonPressed(unsigned int button) const;
+
+    private:
+        static InputManager *s_Instance;
+
+        bool m_Keys[MAX_KEYS]{};
+
+        bool m_MouseButtonKeys[MAX_MOUSE_BUTTONS]{};
+
+        double m_MouseX{}, m_MouseY{};
+
+        bool m_IsInit;
 
         // Friends functions
         // Callbacks prototyes

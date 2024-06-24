@@ -2,57 +2,31 @@
 // Created by Toudonou on 6/24/2024.
 //
 
+#include <iostream>
+
 #include "InputManager.h"
 
 namespace sparky {
-    bool InputManager::m_Keys[MAX_KEYS];
-    bool InputManager::m_MouseButtonKeys[MAX_MOUSE_BUTTONS];
-    bool InputManager::m_MouseX = false;
-    bool InputManager::m_MouseY = false;
+    InputManager *InputManager::s_Instance = nullptr;
 
     // Callbacks functions
-    void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-    {
-        if (key == GLFW_KEY_E && action == GLFW_PRESS)
-            // activate_airship();
-    }
-
-    void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
-    {
-        if (button == GLFW_KEY_E && action == GLFW_PRESS)
-            // activate_airship();
-    }
-
-    void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
-    {
-    }
-
-
-    void InputManager::Init(Window &window) {
-        if(m_IsInit) {
-            std::cout << "WARNING : Trying to initialize the window twice";
-            return;
+    void key_callback(GLFWwindow *window, const int key, int scancode, const int action, int mods) {
+        if (InputManager::s_Instance) {
+            InputManager::s_Instance->m_Keys[key] = action != GLFW_RELEASE;
         }
-        glfwSetKeyCallback(window, key_callback);
     }
 
-    void InputManager::Quit() {
-    }
-
-    bool InputManager::isKeyPressed(unsigned int keycode) {
-        // TODO : Print a log message
-        if (keycode >= MAX_KEYS) {
-            return false;
+    void mouse_button_callback(GLFWwindow *window, const int button, const int action, int mods) {
+        if (InputManager::s_Instance) {
+            InputManager::s_Instance->m_MouseButtonKeys[button] = action != GLFW_RELEASE;
         }
-        return m_Keys[keycode];
     }
 
-    bool InputManager::isMouseButtonPressed(unsigned int button) {
-        // TODO : Print a log message
-        if (button >= MAX_MOUSE_BUTTONS) {
-            return false;
+    void cursor_position_callback(GLFWwindow *window, const double xpos, const double ypos) {
+        if (InputManager::s_Instance) {
+            InputManager::s_Instance->m_MouseX = xpos;
+            InputManager::s_Instance->m_MouseY = ypos;
         }
-        return m_MouseButtonKeys[button];
     }
 
     InputManager::InputManager() {
@@ -60,4 +34,44 @@ namespace sparky {
     };
 
     InputManager::~InputManager() = default;
+
+
+    void InputManager::Init(GLFWwindow *window) {
+        if (m_IsInit || s_Instance) {
+            std::cout << "WARNING : Trying to initialize the input manager twice";
+            return;
+        }
+
+        if (!window) {
+            std::cout << "ERROR : Window should be valid; Input manager initialization failed" << std::endl;
+            return;
+        }
+        m_IsInit = true;
+        s_Instance = this;
+
+        glfwSetKeyCallback(window, key_callback);
+        glfwSetMouseButtonCallback(window, mouse_button_callback);
+        glfwSetCursorPosCallback(window, cursor_position_callback);
+    }
+
+    void InputManager::Quit() {
+        m_IsInit = false;
+        s_Instance = nullptr;
+    }
+
+    bool InputManager::isKeyPressed(const unsigned int keycode) const {
+        // TODO : Print a log message
+        if (keycode >= MAX_KEYS) {
+            return false;
+        }
+        return m_Keys[keycode];
+    }
+
+    bool InputManager::isMouseButtonPressed(const unsigned int button) const {
+        // TODO : Print a log message
+        if (button >= MAX_MOUSE_BUTTONS) {
+            return false;
+        }
+        return m_MouseButtonKeys[button];
+    }
 } // sparky

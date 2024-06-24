@@ -22,9 +22,18 @@ namespace sparky {
         m_Height = 0;
         m_Title = "";
         m_Window = nullptr;
+        m_InputManager = InputManager();
     }
 
     Window::~Window() = default;
+
+    bool Window::isKeyPressed(const unsigned int keycode) const {
+       return  m_InputManager.isKeyPressed(keycode);
+    }
+
+    bool Window::isMouseButtonPressed(const unsigned int button) const {
+        return  m_InputManager.isMouseButtonPressed(button);
+    }
 
     void Window::Init(const int width, const int height, const std::string &tilte) {
         // Some kind of singleton partern
@@ -66,6 +75,8 @@ namespace sparky {
         // So.....
         s_Instance = this; // Maybe not good at all
         m_IsInit = true;
+        m_InputManager.Init(m_Window);
+
         glViewport(0, 0, m_Width, m_Height);
 
         // Setting up the frame buffer callback function
@@ -73,18 +84,14 @@ namespace sparky {
     }
 
     void Window::Update() {
-        while (!glfwWindowShouldClose(m_Window)) {
-            glfwPollEvents();
-            glClearColor(0.5f, 0.4f, 0.4f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            // Swapping the buffers
-            glfwSwapBuffers(m_Window);
-        }
+        glfwPollEvents();
+        // Swapping the buffers
+        glfwSwapBuffers(m_Window);
     }
 
     void Window::Quit() {
         m_IsInit = false;
+        s_Instance = nullptr;
         glfwTerminate();
     }
 

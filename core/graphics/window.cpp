@@ -27,6 +27,7 @@ namespace sparky {
     Window::~Window() = default;
 
     void Window::Init(const int width, const int height, const std::string &tilte) {
+        // Some kind of singleton partern
         if (m_IsInit || s_Instance) {
             std::cout << "WARNING : Trying to initialize the window twice";
             return;

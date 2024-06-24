@@ -1,0 +1,11 @@
+# ninja log v5
+8	802	7409303235260844	CMakeFiles/sparky.dir/main.cpp.obj	300e431bc7eb256b
+749	903	7409303623834884	sparky.exe	b293b4b99509c14e
+7	749	7409303622346310	CMakeFiles/sparky.dir/core/graphics/window.cpp.obj	d1eac6839eed271f
+17	1650	7409286990011563	CMakeFiles/sparky.dir/third-party/src/glad.c.obj	c86d46c366dd26f4
+16	87	7409513827807354	CMakeFiles/sparky.dir/core/input/InputManager.cpp.obj	1f873cb16c8a38f5
+8	884	7409513835781606	CMakeFiles/sparky.dir/core/graphics/window.cpp.obj	d1eac6839eed271f
+884	1079	7409513837680391	sparky.exe	c3ad3f661f06d8d9
+47	1000	7409515044441169	CMakeFiles/sparky.dir/main.cpp.obj	300e431bc7eb256b
+93	1006	7409515044516408	CMakeFiles/sparky.dir/core/graphics/window.cpp.obj	d1eac6839eed271f
+1007	1395	7409515048340091	sparky.exe	c3ad3f661f06d8d9

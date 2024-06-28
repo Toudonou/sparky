@@ -5,11 +5,14 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <numbers>
+
 namespace sparky {
     typedef double real;
 
     inline real toRadian(const real degree) {
-        return degree * (std::numbers::pi / 180);
+        constexpr real pi_over_180 = std::numbers::pi/ 180; // For optimization
+        return degree * pi_over_180;
     }
 }
 

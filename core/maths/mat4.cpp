@@ -43,7 +43,7 @@ namespace sparky {
         return result;
     }
 
-    mat4 mat4::perspective(real fov, real aspectRatio, real near, real far) {
+    mat4 mat4::perspective(const real fov, const real aspectRatio, const real near, const real far) {
         auto result = mat4::identity();
 
         const real q = 1 / tan(toRadian(0.5 * fov));

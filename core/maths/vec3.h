@@ -2,36 +2,36 @@
 // Created by Toudonou on 6/24/2024.
 //
 
-#ifndef VECTOR3_H
-#define VECTOR3_H
+#ifndef VECT3_H
+#define VECT3_H
 
 #include <string>
 
 #include "constants.h"
 
 namespace sparky {
-    struct Vector3 {
+    struct vec3 {
         real x, y, z;
 
-        Vector3();
+        vec3();
 
-        Vector3(real _x, real _y, real _z);
+        vec3(real _x, real _y, real _z);
 
-        ~Vector3();
+        ~vec3();
 
-        Vector3 operator+(const Vector3 &other) const;
+        vec3 operator+(const vec3 &other) const;
 
-        void operator+=(const Vector3 &other);
+        void operator+=(const vec3 &other);
 
-        Vector3 operator-(const Vector3 &other) const;
+        vec3 operator-(const vec3 &other) const;
 
-        void operator-=(const Vector3 &other);
+        void operator-=(const vec3 &other);
 
-        Vector3 operator*(real scalar) const; // Scalar product
+        vec3 operator*(real scalar) const; // Scalar product
 
         void operator*=(real scalar); // Scalar product
 
-        real operator*(const Vector3 &other) const; // Dot product
+        real operator*(const vec3 &other) const; // Dot product
         __forceinline [[nodiscard]] std::string toString() const {
             return "(" + std::to_string(x) + ", " + std::to_string(y) + std::to_string(z) + ")";
         }
@@ -42,4 +42,4 @@ namespace sparky {
     };
 } // sparky
 
-#endif //VECTOR3_H
+#endif //VECT3_H

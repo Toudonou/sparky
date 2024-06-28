@@ -2,7 +2,7 @@
 // Created by Toudonou on 6/24/2024.
 //
 
-#include "window.h"
+#include "Window.h"
 
 namespace sparky {
     Window *Window::s_Instance = nullptr;
@@ -27,12 +27,12 @@ namespace sparky {
 
     Window::~Window() = default;
 
-    bool Window::isKeyPressed(const unsigned int keycode) const {
-       return  m_InputManager.isKeyPressed(keycode);
+    bool Window::IsKeyPressed(const unsigned int keycode) const {
+       return  m_InputManager.IsKeyPressed(keycode);
     }
 
-    bool Window::isMouseButtonPressed(const unsigned int button) const {
-        return  m_InputManager.isMouseButtonPressed(button);
+    bool Window::IsMouseButtonPressed(const unsigned int button) const {
+        return  m_InputManager.IsMouseButtonPressed(button);
     }
 
     void Window::Init(const int width, const int height, const std::string &tilte) {

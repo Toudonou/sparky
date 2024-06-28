@@ -22,9 +22,9 @@ namespace sparky {
 
         void Quit();
 
-        [[nodiscard]] bool isKeyPressed(unsigned int keycode) const;
+        [[nodiscard]] bool IsKeyPressed(unsigned int keycode) const;
 
-        [[nodiscard]] bool isMouseButtonPressed(unsigned int button) const;
+        [[nodiscard]] bool IsMouseButtonPressed(unsigned int button) const;
 
     private:
         static InputManager *s_Instance;

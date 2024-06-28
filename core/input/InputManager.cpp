@@ -59,7 +59,7 @@ namespace sparky {
         s_Instance = nullptr;
     }
 
-    bool InputManager::isKeyPressed(const unsigned int keycode) const {
+    bool InputManager::IsKeyPressed(const unsigned int keycode) const {
         // TODO : Print a log message
         if (keycode >= MAX_KEYS) {
             return false;
@@ -67,7 +67,7 @@ namespace sparky {
         return m_Keys[keycode];
     }
 
-    bool InputManager::isMouseButtonPressed(const unsigned int button) const {
+    bool InputManager::IsMouseButtonPressed(const unsigned int button) const {
         // TODO : Print a log message
         if (button >= MAX_MOUSE_BUTTONS) {
             return false;

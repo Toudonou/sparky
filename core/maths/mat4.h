@@ -21,7 +21,7 @@ namespace sparky {
 
         static mat4 perspective(real fov, real aspectRatio, real near, real far);
 
-        __forceinline real *GetElements() {return elements;};
+        __forceinline real *GetElements() { return elements; }
 
         real &operator()(int i, int j);
 
@@ -51,7 +51,7 @@ namespace sparky {
         // vec4 times mat4
         // mat4 operator*(const vec4 &vector);
 
-    private:
+    // private:
         real elements[4 * 4]{}; // Will be arrange like opengl matrix
     };
 

@@ -5,19 +5,15 @@
 #include "mat4.h"
 
 #include <cmath>
+#include <cstring>
 
 namespace sparky {
     mat4::mat4() {
-        for (real &element: elements) {
-            element = 0;
-        }
+        memset(elements, 0, 4 * 4 * sizeof(real));
     }
 
     mat4::mat4(const real diagonal) {
-        for (real &element: elements) {
-            element = 0;
-        }
-
+        memset(elements, 0, 4 * 4 * sizeof(real));
         elements[0 + 4 * 0] = diagonal;
         elements[1 + 4 * 1] = diagonal;
         elements[2 + 4 * 2] = diagonal;
@@ -34,11 +30,11 @@ namespace sparky {
 
         result(0, 0) = 2 / (right - left);
         result(1, 1) = 2 / (top - bottom);
-        result(2, 2) = 2 / (far - near);
+        result(2, 2) = 2 / (near - far);
 
-        result(0, 3) = (right + left) / (right - left);
-        result(1, 3) = (top + bottom) / (top - bottom);
-        result(2, 3) = (far + near) / (far - near);
+        result(0, 3) = -(right + left) / (right - left);
+        result(1, 3) = -(top + bottom) / (top - bottom);
+        result(2, 3) = -(far + near) / (far - near);
 
         return result;
     }
@@ -46,10 +42,10 @@ namespace sparky {
     mat4 mat4::perspective(const real fov, const real aspectRatio, const real near, const real far) {
         auto result = identity();
 
-        const real q = 1 / tan(toRadian(0.5 * fov));
+        const real q = 1.0f / tan(toRadian(0.5f * fov));
         const real a = q / aspectRatio;
         const real b = (near + far) / (near - far);
-        const real c = (2 * near * far) / (near - far);
+        const real c = 2 * near * far / (near - far);
 
         result(0, 0) = a;
         result(1, 1) = q;

@@ -2,9 +2,6 @@
 // Created by Toudonou on 6/29/2024.
 //
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #include <iostream>
 #include <utility>
 
@@ -20,6 +17,32 @@ namespace sparky {
 
     Shader::~Shader() {
         glDeleteProgram(m_ShaderID);
+    }
+
+    void Shader::setUniform1i(const std::string &name, const int value) const {
+        glUniform1i(getUniformLocation(name), value);
+    }
+
+    void Shader::setUniform1f(const std::string &name, const float value) const {
+        glUniform1f(getUniformLocation(name), value);
+    }
+
+    void Shader::setUniform2f(const std::string &name, const vec2 &vector) const {
+        glUniform2f(getUniformLocation(name), static_cast<GLfloat>(vector.x), static_cast<GLfloat>(vector.y));
+    }
+
+    void Shader::setUniform3f(const std::string &name, const vec3 &vector) const {
+        glUniform3f(getUniformLocation(name), static_cast<GLfloat>(vector.x), static_cast<GLfloat>(vector.y),
+                    static_cast<GLfloat>(vector.z));
+    }
+
+    void Shader::setUniform4f(const std::string &name, const vec4 &vector) const {
+        glUniform4f(getUniformLocation(name), static_cast<GLfloat>(vector.x), static_cast<GLfloat>(vector.y),
+                    static_cast<GLfloat>(vector.z), static_cast<GLfloat>(vector.w));
+    }
+
+    void Shader::setUniformMat4(const std::string &name, mat4 &matrix) const {
+        glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.GetElements());
     }
 
     void Shader::enable() const {
@@ -101,5 +124,9 @@ namespace sparky {
         glDeleteShader(fragment);
 
         return program;
+    }
+
+    GLint Shader::getUniformLocation(const std::string &name) const {
+        return glGetUniformLocation(m_ShaderID, name.c_str());
     }
 } // namespace sparky

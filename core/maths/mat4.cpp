@@ -8,20 +8,20 @@
 
 namespace sparky {
     mat4::mat4() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                element[i][j] = 0;
-            }
+        for (real &element: elements) {
+            element = 0;
         }
     }
 
     mat4::mat4(const real diagonal) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                element[i][j] = 0;
-            }
-            element[i][i] = diagonal;
+        for (real &element: elements) {
+            element = 0;
         }
+
+        elements[0 + 4 * 0] = diagonal;
+        elements[1 + 4 * 1] = diagonal;
+        elements[2 + 4 * 2] = diagonal;
+        elements[3 + 4 * 3] = diagonal;
     }
 
     mat4 mat4::identity() {
@@ -44,7 +44,7 @@ namespace sparky {
     }
 
     mat4 mat4::perspective(const real fov, const real aspectRatio, const real near, const real far) {
-        auto result = mat4::identity();
+        auto result = identity();
 
         const real q = 1 / tan(toRadian(0.5 * fov));
         const real a = q / aspectRatio;
@@ -62,12 +62,12 @@ namespace sparky {
 
     real &mat4::operator()(const int i, const int j) {
         // TODO : Make a checking
-        return element[i][j];
+        return elements[i + 4 * j];
     }
 
     const real &mat4::operator()(const int i, const int j) const {
         // TODO : Make a checking
-        return element[i][j];
+        return elements[i + 4 * j];
     }
 
     mat4 mat4::operator+(const mat4 &other) const {
@@ -89,11 +89,11 @@ namespace sparky {
     }
 
     mat4 mat4::operator-(const mat4 &other) const {
-        return (*this) + -1 * other;
+        return *this + -1 * other;
     }
 
     void mat4::operator-=(const mat4 &other) {
-        (*this) += -1 * other;
+        *this += -1 * other;
     }
 
     // Matrix product

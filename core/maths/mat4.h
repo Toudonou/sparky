@@ -4,6 +4,8 @@
 
 #ifndef MAT4_H
 #define MAT4_H
+#include <_mingw.h>
+
 #include "constants.h"
 
 
@@ -18,6 +20,8 @@ namespace sparky {
         static mat4 orthographic(real left, real right, real bottom, real top, real near, real far);
 
         static mat4 perspective(real fov, real aspectRatio, real near, real far);
+
+        __forceinline real *GetElements() {return elements;};
 
         real &operator()(int i, int j);
 
@@ -48,7 +52,7 @@ namespace sparky {
         // mat4 operator*(const vec4 &vector);
 
     private:
-        real element[4][4]{};
+        real elements[4 * 4]{}; // Will be arrange like opengl matrix
     };
 
     // Scalar product

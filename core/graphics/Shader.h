@@ -33,7 +33,7 @@ namespace sparky {
 
         void setUniform4f(const std::string &name, const vec4 &vector) const;
 
-        void Shader::setUniformMat4(const std::string &name, mat4 &matrix) const;
+        void setUniformMat4(const std::string &name, mat4 &matrix) const;
 
         void enable() const;
 

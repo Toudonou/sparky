@@ -7,7 +7,7 @@
 #include <cmath>
 
 namespace sparky {
-    mat4 Transform::Translation(const vec3 &vector) {
+    mat4 Transform::Translate(const vec3 &vector) {
         auto result = mat4::identity();
 
         result(0, 3) = vector.x;
@@ -27,7 +27,7 @@ namespace sparky {
         return result;
     }
 
-    mat4 Transform::Rotation(const real angle, const vec3 &axis) {
+    mat4 Transform::Rotate(const real angle, const vec3 &axis) {
         auto result = mat4::identity();
 
         const real r = toRadian(angle);

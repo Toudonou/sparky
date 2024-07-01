@@ -10,11 +10,11 @@
 namespace sparky {
     class Transform {
     public:
-        static mat4 Translation(const vec3 &vector);
+        static mat4 Translate(const vec3 &vector);
 
         static mat4 Scale(const vec3 &vector);
 
-        static mat4 Rotation(real angle, const vec3 &axis);
+        static mat4 Rotate(real angle, const vec3 &axis);
     };
 } // sparky
 

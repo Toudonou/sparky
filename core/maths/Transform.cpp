@@ -27,7 +27,6 @@ namespace sparky {
         return result;
     }
 
-    // TODO : axis should be a unit vector
     mat4 Transform::Rotate(const real angle, const vec3 &axis) {
         auto result = mat4::identity();
 
@@ -36,9 +35,16 @@ namespace sparky {
         const real c = cos(r);
         const real omc = 1 - c;
 
-        const real x = axis.x;
-        const real y = axis.y;
-        const real z = axis.z;
+        real x = axis.x;
+        real y = axis.y;
+        real z = axis.z;
+
+        if (axis.squareLength() != 1) {
+            const vec3 temp = axis.normalized();
+            x = temp.x;
+            y = temp.y;
+            z = temp.z;
+        }
 
         result(0, 0) = x * x * omc + c;
         result(0, 1) = x * y * omc - z * s;

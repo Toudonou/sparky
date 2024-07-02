@@ -8,6 +8,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "../maths/vec2.h"
+
 #define MAX_KEYS            1024
 #define MAX_MOUSE_BUTTONS   32
 
@@ -19,13 +21,15 @@ namespace sparky {
         ~InputManager();
 
         // TODO : I should used weak_ptr
-        void Init( GLFWwindow *window);
+        void Init(GLFWwindow *window);
 
         void Quit();
 
         [[nodiscard]] bool IsKeyPressed(unsigned int keycode) const;
 
         [[nodiscard]] bool IsMouseButtonPressed(unsigned int button) const;
+
+        [[nodiscard]] vec2 GetMousePosition() const { return {m_MouseX, m_MouseY}; }
 
     private:
         static InputManager *s_Instance;
@@ -34,13 +38,13 @@ namespace sparky {
 
         bool m_MouseButtonKeys[MAX_MOUSE_BUTTONS]{};
 
-        double m_MouseX{}, m_MouseY{};
+        real m_MouseX{}, m_MouseY{};
 
         bool m_IsInit;
 
         // Friends functions
         // Callbacks prototyes
-        friend  void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+        friend void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
         friend void mouse_button_callback(GLFWwindow *window, int button, int action, int mods);
 

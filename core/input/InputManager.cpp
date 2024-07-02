@@ -24,8 +24,8 @@ namespace sparky {
 
     void cursor_position_callback(GLFWwindow *window, const double xpos, const double ypos) {
         if (InputManager::s_Instance) {
-            InputManager::s_Instance->m_MouseX = xpos;
-            InputManager::s_Instance->m_MouseY = ypos;
+            InputManager::s_Instance->m_MouseX = static_cast<float>(xpos);
+            InputManager::s_Instance->m_MouseY = static_cast<float>(ypos);
         }
     }
 

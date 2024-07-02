@@ -4,6 +4,8 @@
 
 #include "vec3.h"
 
+#include <cmath>
+
 namespace sparky {
     vec3::vec3() {
         x = 0;
@@ -15,6 +17,19 @@ namespace sparky {
     }
 
     vec3::~vec3() = default;
+
+    real vec3::length() const {
+        return std::sqrt(squareLength());
+    }
+
+    real vec3::squareLength() const {
+        return x * x + y * y + z * z;
+    }
+
+    vec3 vec3::normalized() const {
+        if (squareLength() == 0) return {0, 0, 0};
+        return *this * (1 / length());
+    }
 
     vec3 vec3::operator+(const vec3 &other) const {
         return {x + other.x, y + other.y, z + other.z};

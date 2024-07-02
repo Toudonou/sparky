@@ -19,6 +19,12 @@ namespace sparky {
 
         ~vec3();
 
+        real length() const;
+
+        real squareLength() const;
+
+        vec3 normalized() const;
+
         vec3 operator+(const vec3 &other) const;
 
         void operator+=(const vec3 &other);
@@ -32,7 +38,7 @@ namespace sparky {
         void operator*=(real scalar); // Scalar product
 
         real operator*(const vec3 &other) const; // Dot product
-        __forceinline [[nodiscard]] std::string toString() const {
+        __forceinline std::string toString() const {
             return "(" + std::to_string(x) + ", " + std::to_string(y) + std::to_string(z) + ")";
         }
 

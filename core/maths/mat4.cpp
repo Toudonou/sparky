@@ -25,7 +25,7 @@ namespace sparky {
     }
 
     mat4 mat4::orthographic(const real left, const real right, const real bottom, const real top, const real near,
-                            const real far) {
+                             const real far) {
         auto result = identity();
 
         result(0, 0) = 2 / (right - left);
@@ -139,6 +139,17 @@ namespace sparky {
                 (*this)(i, j) *= scalar;
             }
         }
+    }
+
+    vec4 mat4::operator*(const vec4& vector) const {
+        auto result = vec4();
+        for (int i = 0; i < 4; ++i) {
+            result.x += (*this)(i, 0) * vector.x;
+            result.y += (*this)(i, 1) * vector.y;
+            result.z += (*this)(i, 2) * vector.z;
+            result.w += (*this)(i, 3) * vector.w;
+        }
+        return result;
     }
 
     // Scalar product

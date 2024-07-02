@@ -7,6 +7,7 @@
 #include <_mingw.h>
 
 #include "constants.h"
+#include "./vec4.h"
 
 
 namespace sparky {
@@ -48,10 +49,13 @@ namespace sparky {
         // Scalar product
         void operator*=(real scalar);
 
+        // Scalar product
+        vec4 operator*(const vec4& vector) const;
+
         // vec4 times mat4
         // mat4 operator*(const vec4 &vector);
 
-    // private:
+        // private:
         real elements[4 * 4]{}; // Will be arrange like opengl matrix
     };
 

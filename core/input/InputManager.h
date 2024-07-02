@@ -29,7 +29,7 @@ namespace sparky {
 
         [[nodiscard]] bool IsMouseButtonPressed(unsigned int button) const;
 
-        [[nodiscard]] vec2 GetMousePosition() const { return {m_MouseX, m_MouseY}; }
+        __forceinline [[nodiscard]] vec2 GetMousePosition() const { return {m_MouseX, m_MouseY}; }
 
     private:
         static InputManager *s_Instance;

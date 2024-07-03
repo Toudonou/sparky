@@ -23,6 +23,9 @@ namespace sparky {
         void Quit();
 
         __forceinline [[nodiscard]] GLFWwindow *GetWindow() const { return m_Window; }
+        __forceinline [[nodiscard]] vec2 GetSize() const {
+            return {static_cast<real>(m_Width), static_cast<real>(m_Height)};
+        }
 
         Window();
 

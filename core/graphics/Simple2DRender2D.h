@@ -2,18 +2,18 @@
 // Created by Toudonou on 7/2/2024.
 //
 
-#ifndef RENDER2D_H
-#define RENDER2D_H
+#ifndef SIMPLE2DRENDER2D_H
+#define SIMPLE2DRENDER2D_H
 #include <vector>
 
 #include "Renderable2D.h"
 
 
 namespace sparky {
-    class Render2D {
+    class Simple2DRender2D {
     public:
-        Render2D();
-        ~Render2D();
+        Simple2DRender2D();
+        ~Simple2DRender2D();
         void Draw() const;
 
         void AddRenderable2D(Renderable2D *renderable2D);
@@ -24,4 +24,4 @@ namespace sparky {
 }
 
 
-#endif //RENDER2D_H
+#endif //SIMPLE2DRENDER2D_H

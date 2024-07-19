@@ -10,7 +10,7 @@
 #include "../maths/vec4.h"
 
 namespace sparky {
-    class Rectangle2D : public Renderable2D {
+    class Rectangle2D final : public Renderable2D {
     public:
         Rectangle2D(real x, real y, real z, real width, real height, const vec4 &color);
 

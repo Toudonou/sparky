@@ -16,7 +16,7 @@ namespace sparky {
     public:
         void Init(int width, int height, const std::string &tilte);
 
-        void Update();
+        void Update() const;
 
         __forceinline [[nodiscard]] bool IsClosed() const { return glfwWindowShouldClose(m_Window); }
 

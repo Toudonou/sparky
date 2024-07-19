@@ -6,7 +6,7 @@
 #include <gl/gl.h>
 #include <gl/glext.h>
 
-#include "SOIL.h"
+#include "SOIL/SOIL.h"
 
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);

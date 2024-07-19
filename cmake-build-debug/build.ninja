@@ -63,8 +63,8 @@ build CMakeFiles/sparky.dir/third-party/src/glad.c.obj: C_COMPILER__sparky_unsca
   OBJECT_DIR = CMakeFiles\sparky.dir
   OBJECT_FILE_DIR = CMakeFiles\sparky.dir\third-party\src
 
-build CMakeFiles/sparky.dir/core/graphics/window.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/window.cpp || cmake_object_order_depends_target_sparky
-  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\window.cpp.obj.d
+build CMakeFiles/sparky.dir/core/graphics/Window.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/Window.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\Window.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   INCLUDES = -IE:/Dev/sparky/third-party/include
   OBJECT_DIR = CMakeFiles\sparky.dir
@@ -77,6 +77,90 @@ build CMakeFiles/sparky.dir/core/input/InputManager.cpp.obj: CXX_COMPILER__spark
   OBJECT_DIR = CMakeFiles\sparky.dir
   OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\input
 
+build CMakeFiles/sparky.dir/core/maths/vec2.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/maths/vec2.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\maths\vec2.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\maths
+
+build CMakeFiles/sparky.dir/core/maths/vec3.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/maths/vec3.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\maths\vec3.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\maths
+
+build CMakeFiles/sparky.dir/core/maths/vec4.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/maths/vec4.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\maths\vec4.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\maths
+
+build CMakeFiles/sparky.dir/core/maths/mat4.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/maths/mat4.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\maths\mat4.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\maths
+
+build CMakeFiles/sparky.dir/core/maths/Transform.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/maths/Transform.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\maths\Transform.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\maths
+
+build CMakeFiles/sparky.dir/core/graphics/Shader.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/Shader.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\Shader.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics
+
+build CMakeFiles/sparky.dir/core/graphics/buffers/VertexBuffer.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/buffers/VertexBuffer.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\buffers\VertexBuffer.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics\buffers
+
+build CMakeFiles/sparky.dir/core/graphics/buffers/IndexBuffer.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/buffers/IndexBuffer.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\buffers\IndexBuffer.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics\buffers
+
+build CMakeFiles/sparky.dir/core/graphics/buffers/VertexArray.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/buffers/VertexArray.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\buffers\VertexArray.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics\buffers
+
+build CMakeFiles/sparky.dir/core/graphics/Simple2DRender2D.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/Simple2DRender2D.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\Simple2DRender2D.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics
+
+build CMakeFiles/sparky.dir/core/graphics/Rectangle2D.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/Rectangle2D.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\Rectangle2D.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics
+
+build CMakeFiles/sparky.dir/core/graphics/BatchRender.cpp.obj: CXX_COMPILER__sparky_unscanned_Debug E$:/Dev/sparky/core/graphics/BatchRender.cpp || cmake_object_order_depends_target_sparky
+  DEP_FILE = CMakeFiles\sparky.dir\core\graphics\BatchRender.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IE:/Dev/sparky/third-party/include
+  OBJECT_DIR = CMakeFiles\sparky.dir
+  OBJECT_FILE_DIR = CMakeFiles\sparky.dir\core\graphics
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sparky
@@ -85,7 +169,7 @@ build CMakeFiles/sparky.dir/core/input/InputManager.cpp.obj: CXX_COMPILER__spark
 #############################################
 # Link the executable sparky.exe
 
-build sparky.exe: CXX_EXECUTABLE_LINKER__sparky_Debug CMakeFiles/sparky.dir/main.cpp.obj CMakeFiles/sparky.dir/third-party/src/glad.c.obj CMakeFiles/sparky.dir/core/graphics/window.cpp.obj CMakeFiles/sparky.dir/core/input/InputManager.cpp.obj
+build sparky.exe: CXX_EXECUTABLE_LINKER__sparky_Debug CMakeFiles/sparky.dir/main.cpp.obj CMakeFiles/sparky.dir/third-party/src/glad.c.obj CMakeFiles/sparky.dir/core/graphics/Window.cpp.obj CMakeFiles/sparky.dir/core/input/InputManager.cpp.obj CMakeFiles/sparky.dir/core/maths/vec2.cpp.obj CMakeFiles/sparky.dir/core/maths/vec3.cpp.obj CMakeFiles/sparky.dir/core/maths/vec4.cpp.obj CMakeFiles/sparky.dir/core/maths/mat4.cpp.obj CMakeFiles/sparky.dir/core/maths/Transform.cpp.obj CMakeFiles/sparky.dir/core/graphics/Shader.cpp.obj CMakeFiles/sparky.dir/core/graphics/buffers/VertexBuffer.cpp.obj CMakeFiles/sparky.dir/core/graphics/buffers/IndexBuffer.cpp.obj CMakeFiles/sparky.dir/core/graphics/buffers/VertexArray.cpp.obj CMakeFiles/sparky.dir/core/graphics/Simple2DRender2D.cpp.obj CMakeFiles/sparky.dir/core/graphics/Rectangle2D.cpp.obj CMakeFiles/sparky.dir/core/graphics/BatchRender.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lglfw3  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LE:/Dev/sparky/third-party/lib

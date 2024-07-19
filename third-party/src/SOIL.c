@@ -30,10 +30,10 @@
 	#include <GL/glx.h>
 #endif
 
-#include "SOIL.h"
-#include "stb_image_aug.h"
-#include "image_helper.h"
-#include "image_DXT.h"
+#include "SOIL/SOIL.h"
+#include "SOIL/stb_image_aug.h"
+#include "SOIL/image_helper.h"
+#include "SOIL/image_DXT.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -1426,7 +1426,7 @@ unsigned char*
 	(
 		const char *filename,
 		int *width, int *height, int *channels,
-		int force_channels
+		const int force_channels
 	)
 {
 	unsigned char *result = stbi_load( filename,

@@ -63,7 +63,7 @@
              on 'test' only check type, not whether we support this variant
 */
 
-#include "stb_image_aug.h"
+#include "SOIL/stb_image_aug.h"
 
 #ifndef STBI_NO_HDR
 #include <math.h>  // ldexp
@@ -82,7 +82,7 @@
   #ifdef __cplusplus
   #define __forceinline inline
   #else
-  #define __forceinline
+  #define _forceinline
   #endif
 #endif
 
@@ -103,7 +103,7 @@ typedef unsigned char validate_uint32[sizeof(uint32)==4];
 #endif
 
 #ifndef STBI_NO_DDS
-#include "stbi_DDS_aug.h"
+#include "SOIL/stbi_DDS_aug.h"
 #endif
 
 //	I (JLD) want full messages for SOIL
@@ -3674,5 +3674,5 @@ int stbi_write_tga(char const *filename, int x, int y, int comp, void *data)
 
 //	add in my DDS loading support
 #ifndef STBI_NO_DDS
-#include "stbi_DDS_aug_c.h"
+#include "SOIL/stbi_DDS_aug_c.h"
 #endif

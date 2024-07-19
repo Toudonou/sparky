@@ -2,13 +2,13 @@
 // Created by Toudonou on 7/2/2024.
 //
 
-#include "Render2D.h"
+#include "Simple2DRender2D.h"
 
-sparky::Render2D::Render2D() = default;
+sparky::Simple2DRender2D::Simple2DRender2D() = default;
 
-sparky::Render2D::~Render2D() = default;
+sparky::Simple2DRender2D::~Simple2DRender2D() = default;
 
-void sparky::Render2D::Draw() const {
+void sparky::Simple2DRender2D::Draw() const {
     for (const auto renderable: m_RenderQueue) {
         renderable->getVertexArray()->bind();
         renderable->getIndexBuffer()->bind();
@@ -20,10 +20,10 @@ void sparky::Render2D::Draw() const {
         renderable->getVertexArray()->unbind();
         renderable->getIndexBuffer()->unbind();
         renderable->getPositionBuffer()->unbind();
-        renderable->getColorBuffer()->unbind();;
+        renderable->getColorBuffer()->unbind();
     }
 }
 
-void sparky::Render2D::AddRenderable2D(Renderable2D *renderable2D) {
+void sparky::Simple2DRender2D::AddRenderable2D(Renderable2D *renderable2D) {
     m_RenderQueue.push_back(renderable2D);
 }

@@ -33,8 +33,13 @@ namespace sparky {
         m_ColorBuffer = new VertexBuffer(colors, 4 * 4, 4);
 
         m_VAO->addVertexBuffer(m_PositonBuffer, 0);
-        m_VAO->addVertexBuffer(m_ColorBuffer, 1);
+        m_VAO->addVertexBuffer(m_ColorBuffer, 2);
     }
 
-    Rectangle2D::~Rectangle2D() = default;
+    Rectangle2D::~Rectangle2D() {
+        delete m_VAO;
+        delete m_IBO;
+        delete m_PositonBuffer;
+        delete m_ColorBuffer;
+    };
 } // sparky

@@ -23,6 +23,10 @@ namespace sparky {
         glUniform1i(getUniformLocation(name), value);
     }
 
+    void Shader::setUniform1iv(const std::string &name, const int *value, const int count) const {
+        glUniform1iv(getUniformLocation(name), count, value);
+    }
+
     void Shader::setUniform1f(const std::string &name, const float value) const {
         glUniform1f(getUniformLocation(name), value);
     }

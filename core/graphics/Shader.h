@@ -25,6 +25,8 @@ namespace sparky {
 
         void setUniform1i(const std::string &name, int value) const;
 
+        void setUniform1iv(const std::string &name, const int* value, int count) const;
+
         void setUniform1f(const std::string &name, float value) const;
 
         void setUniform2f(const std::string &name, const vec2 &vector) const;

@@ -47,8 +47,8 @@ namespace sparky {
             return;
         }
 
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // Setting up the minor GLFW version
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // Setting up the major GLFW version
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); // Setting up the major GLFW version
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4); // Setting up the minor GLFW version
         // Telling GLFW that we want to used the core profile
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
@@ -83,7 +83,7 @@ namespace sparky {
         glfwSetFramebufferSizeCallback(m_Window, frame_buffer_size_callback);
     }
 
-    void Window::Update() {
+    void Window::Update() const {
         glfwPollEvents();
         // Swapping the buffers
         glfwSwapBuffers(m_Window);

@@ -11,7 +11,7 @@
 
 namespace sparky {
     struct Vertex {
-        vec2 position;
+        vec3 position;
         vec2 uv;
         vec4 color;
         float texID;

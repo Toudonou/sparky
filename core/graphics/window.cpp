@@ -48,7 +48,7 @@ namespace sparky {
         }
 
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); // Setting up the major GLFW version
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4); // Setting up the minor GLFW version
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // Setting up the minor GLFW version
         // Telling GLFW that we want to used the core profile
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 

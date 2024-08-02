@@ -140,15 +140,19 @@ namespace sparky {
             }
         }
     }
-
+    
     vec4 mat4::operator*(const vec4& vector) const {
         auto result = vec4();
-        for (int i = 0; i < 4; ++i) {
-            result.x += (*this)(i, 0) * vector.x;
-            result.y += (*this)(i, 1) * vector.y;
-            result.z += (*this)(i, 2) * vector.z;
-            result.w += (*this)(i, 3) * vector.w;
-        }
+
+        result.x = (*this)(0, 0) * vector.x + (*this)(0, 1) * vector.y + (*this)(0, 2) * vector.z + (*this)(0, 3) *
+                vector.w;
+        result.y = (*this)(1, 0) * vector.x + (*this)(1, 1) * vector.y + (*this)(1, 2) * vector.z + (*this)(1, 3) *
+                   vector.w;
+        result.z = (*this)(2, 0) * vector.x + (*this)(2, 1) * vector.y + (*this)(2, 2) * vector.z + (*this)(2, 3) *
+                   vector.w;
+        result.w = (*this)(3, 0) * vector.x + (*this)(3, 1) * vector.y + (*this)(3, 2) * vector.z + (*this)(3, 3) *
+                   vector.w;
+
         return result;
     }
 

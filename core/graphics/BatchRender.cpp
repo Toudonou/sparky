@@ -47,19 +47,22 @@ namespace sparky {
         const int index = indexOf(m_Textures, sprite->texID);
 
         m_Vertices.push_back(Vertex{
-            .position = sprite->positon, .uv = vec2(0.0f, 1.0f), .color = sprite->color,
+            .position = vec3(sprite->positon.x, sprite->positon.y, 0), .uv = vec2(0.0f, 1.0f), .color = sprite->color,
             .texID = static_cast<float>(index)
         }); // 0
         m_Vertices.push_back(Vertex{
-            .position = sprite->positon + vec2(sprite->size.x, 0), .uv = vec2(1.0f, 1.0f),
+            .position = vec3(sprite->positon.x, sprite->positon.y, 0) + vec3(sprite->size.x, 0, 0),
+            .uv = vec2(1.0f, 1.0f),
             .color = sprite->color, .texID = static_cast<float>(index)
         }); // 1
         m_Vertices.push_back(Vertex{
-            .position = sprite->positon + vec2(0, sprite->size.y), .uv = vec2(0.0f, 0.0f),
+            .position = vec3(sprite->positon.x, sprite->positon.y, 0) + vec3(0, sprite->size.y, 0),
+            .uv = vec2(0.0f, 0.0f),
             .color = sprite->color, .texID = static_cast<float>(index)
         }); // 2
         m_Vertices.push_back(Vertex{
-            .position = sprite->positon + vec2(sprite->size.x, sprite->size.y), .uv = vec2(1.0f, 0.0f),
+            .position = vec3(sprite->positon.x, sprite->positon.y, 0) + vec3(sprite->size.x, sprite->size.y, 0),
+            .uv = vec2(1.0f, 0.0f),
             .color = sprite->color, .texID = static_cast<float>(index)
         }); // 3
     }
@@ -69,14 +72,18 @@ namespace sparky {
         for (const GLuint texture: m_Textures) {
             glActiveTexture(GL_TEXTURE0 + i++);
             glBindTexture(GL_TEXTURE_2D, texture);
+
+            std::cout << "Texture index : " << i << std::endl;
+            std::cout << "Texture value : " << texture << std::endl;
         }
 
         glBindVertexArray(m_VAO);
         glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 
+
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vertex) * m_Vertices.size(), m_Vertices.data());
-        glDrawElements(GL_TRIANGLES, m_Vertices.size() * NUM_SPRITE_INDICES / NUM_SPRITE_VERTICES, GL_UNSIGNED_INT,
-                       nullptr);
+        constexpr GLfloat indicesFactor = static_cast<GLfloat>(NUM_SPRITE_INDICES) / NUM_SPRITE_VERTICES;
+        glDrawElements(GL_TRIANGLES, m_Vertices.size() * indicesFactor, GL_UNSIGNED_INT, nullptr);
 
         glBindVertexArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -95,7 +102,7 @@ namespace sparky {
 
         // Layout attribution
         glEnableVertexAttribArray(0); // position
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex),
                               reinterpret_cast<void *>(offsetof(Vertex, Vertex::position)));
 
         glEnableVertexAttribArray(1); // uv
@@ -164,11 +171,6 @@ namespace sparky {
         glGenerateMipmap(GL_TEXTURE_2D);
 
         glBindTexture(GL_TEXTURE_2D, 0);
-
-        for (int i = 0; i < temp_width * temp_height; i++) {
-            printf("%c ", image[i]);
-        }
-        std::cout << std::endl;
 
         stbi_image_free(image);
 

@@ -19,11 +19,11 @@ namespace sparky {
 
         ~vec3();
 
-        real length() const;
+        [[nodiscard]] real length() const;
 
-        real squareLength() const;
+        [[nodiscard]] real squareLength() const;
 
-        vec3 normalized() const;
+        [[nodiscard]] vec3 normalized() const;
 
         vec3 operator+(const vec3 &other) const;
 

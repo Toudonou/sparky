@@ -40,8 +40,8 @@ int main() {
 
     GLuint k = 0;
     for (int i = 0; i < nbrTile; i++) {
-        for (int j = 0; j < nbrTile; ++j) {
-            rects.push_back(new sparky::Sprite(size[0].x * i, size[0].y * j, 0, size[k % 1], sparky::vec4(1, 1, 1, 1),
+        for (int j = 0; j < nbrTile; j++) {
+            rects.push_back(new sparky::Sprite(250 + size[0].x * i, 150 + size[0].y * j, 0, size[k % 1], sparky::vec4(1, 1, 1, 1),
                                                icons[k % 1]));
             batchRender.Submit(rects.at(k++));
         }

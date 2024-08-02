@@ -58,7 +58,7 @@ namespace sparky {
 
     // Dot product
     real vec3::operator*(const vec3 &other) const {
-        return x * other.x + y * other.y;
+        return x * other.x + y * other.y + z * other.z;
     }
 
     vec3 vec3::operator-(const vec3 &other) const {
